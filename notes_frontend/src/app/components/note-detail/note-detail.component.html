@@ -1,0 +1,24 @@
+<div class="page">
+  <a routerLink="/" class="btn ghost">← Back</a>
+
+  <div *ngIf="loading()" class="hint">Loading note...</div>
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <article *ngIf="!loading() && note() as n" class="note">
+    <header>
+      <h1>{{ n.title }}</h1>
+      <div class="meta">
+        <span>Created {{ n.createdAt | date:'short' }}</span>
+        <span>•</span>
+        <span>Updated {{ n.updatedAt | date:'short' }}</span>
+      </div>
+    </header>
+    <div class="content">
+      <pre>{{ n.content }}</pre>
+    </div>
+    <footer class="actions">
+      <a class="btn" [routerLink]="['/notes', n.id, 'edit']">Edit</a>
+      <a class="btn danger" [routerLink]="['/']">Close</a>
+    </footer>
+  </article>
+</div>

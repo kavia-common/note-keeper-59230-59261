@@ -1,0 +1,62 @@
+.page {
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.note header {
+  margin: 12px 0 16px;
+}
+.note h1 {
+  margin: 0;
+}
+.meta {
+  color: #777;
+  font-size: 12px;
+  display: flex;
+  gap: 6px;
+}
+.content pre {
+  white-space: pre-wrap;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 120px;
+}
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  background: #f5f7fa;
+  color: #222;
+}
+.btn.danger {
+  background: #ffebee;
+  color: #c62828;
+  border-color: #ffcdd2;
+}
+.btn.ghost {
+  background: transparent;
+  border-color: #e0e0e0;
+}
+.hint {
+  color: #666;
+}
+.error {
+  color: #c62828;
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 12px 0;
+}

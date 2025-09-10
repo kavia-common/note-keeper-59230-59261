@@ -1,0 +1,36 @@
+<div class="page">
+  <a routerLink="/" class="btn ghost">← Back</a>
+  <h1>{{ mode() === 'create' ? 'New Note' : 'Edit Note' }}</h1>
+
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <form (ngSubmit)="onSubmit()" class="form">
+    <label>
+      <span>Title</span>
+      <input
+        type="text"
+        [ngModel]="title()"
+        (ngModelChange)="title.set($event)"
+        name="title"
+        required
+      />
+    </label>
+
+    <label>
+      <span>Content</span>
+      <textarea
+        [ngModel]="content()"
+        (ngModelChange)="content.set($event)"
+        name="content"
+        rows="10"
+      ></textarea>
+    </label>
+
+    <div class="actions">
+      <button class="btn primary" type="submit" [disabled]="loading()">
+        {{ mode() === 'create' ? 'Create' : 'Save' }}
+      </button>
+      <a class="btn" [routerLink]="mode() === 'create' ? '/' : ['/notes', id()]">Cancel</a>
+    </div>
+  </form>
+</div>

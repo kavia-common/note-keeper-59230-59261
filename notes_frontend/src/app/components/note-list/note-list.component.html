@@ -1,0 +1,37 @@
+<div class="page">
+  <header class="header">
+    <h1>My Notes</h1>
+    <a class="btn primary" routerLink="/notes/new">+ New Note</a>
+  </header>
+
+  <div class="toolbar">
+    <input
+      type="text"
+      placeholder="Search notes..."
+      [ngModel]="search()"
+      (ngModelChange)="search.set($event)"
+    />
+    <button class="btn ghost" (click)="loadNotes()">Refresh</button>
+  </div>
+
+  <div *ngIf="loading()" class="hint">Loading notes...</div>
+  <div *ngIf="error()" class="error">{{ error() }}</div>
+
+  <ul class="note-list" *ngIf="!loading() && filteredNotes().length">
+    <li *ngFor="let n of filteredNotes(); trackBy: trackById">
+      <a [routerLink]="['/notes', n.id]">
+        <h3>{{ n.title }}</h3>
+        <p class="preview">{{ n.content }}</p>
+        <span class="meta">Updated {{ n.updatedAt | date:'short' }}</span>
+      </a>
+      <div class="actions">
+        <a class="btn small" [routerLink]="['/notes', n.id, 'edit']">Edit</a>
+        <button class="btn small danger" (click)="deleteNote(n)">Delete</button>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!loading() && !filteredNotes().length" class="hint">
+    No notes found. Create your first note!
+  </div>
+</div>

@@ -8,5 +8,16 @@
 html, body {
   height: 100%;
   background-color: #ffffff;
+  color: #121212;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+a { color: inherit; }
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
 }
